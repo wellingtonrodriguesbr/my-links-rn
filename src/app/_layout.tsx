@@ -3,6 +3,7 @@ import { colors } from "@/styles/colors";
 import { View } from "react-native";
 
 import Toast from "react-native-toast-message";
+import { toastConfig } from "@/config/toast-config";
 
 export default function Layout() {
   return (
@@ -14,7 +15,7 @@ export default function Layout() {
           animation: "fade",
         }}
       />
-      <Toast position="top" />
+      <Toast position="top" config={toastConfig} />
     </View>
   );
 }
