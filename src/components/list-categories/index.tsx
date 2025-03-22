@@ -1,10 +1,16 @@
 import { FlatList } from "react-native";
-import { categories } from "@/utils/categories";
+import { categories, CategoryType } from "@/utils/categories";
 import { Category } from "@/components/category";
 
 import { styles } from "./styles";
 
-export function ListCategories() {
+type ListCategoriesProps = {
+  selectedCategory: string;
+  onSelectedCategory: (category: string) => void;
+};
+
+export function ListCategories(props: ListCategoriesProps) {
+  const { selectedCategory, onSelectedCategory } = props;
   return (
     <FlatList
       style={styles.container}
@@ -13,7 +19,13 @@ export function ListCategories() {
       horizontal
       data={categories}
       keyExtractor={(item) => item.id}
-      renderItem={({ item }) => <Category {...item} isSelected={false} />}
+      renderItem={({ item }) => (
+        <Category
+          {...item}
+          onPress={() => onSelectedCategory(item.categoryName)}
+          isSelected={item.categoryName === selectedCategory}
+        />
+      )}
     />
   );
 }

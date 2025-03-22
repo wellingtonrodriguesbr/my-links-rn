@@ -54,4 +54,10 @@ export const styles = StyleSheet.create({
     borderTopColor: colors.gray[600],
     paddingVertical: 14,
   },
+  emptyListText: {
+    color: colors.gray[400],
+    fontSize: 14,
+    textAlign: "center",
+    marginTop: 24,
+  },
 });

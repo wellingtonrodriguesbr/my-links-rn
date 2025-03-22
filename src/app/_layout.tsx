@@ -2,6 +2,8 @@ import { Stack } from "expo-router";
 import { colors } from "@/styles/colors";
 import { View } from "react-native";
 
+import Toast from "react-native-toast-message";
+
 export default function Layout() {
   return (
     <View style={{ flex: 1, backgroundColor: colors.gray[950] }}>
@@ -12,6 +14,7 @@ export default function Layout() {
           animation: "fade",
         }}
       />
+      <Toast position="top" />
     </View>
   );
 }
